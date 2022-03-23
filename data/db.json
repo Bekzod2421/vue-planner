@@ -1,0 +1,28 @@
+{
+	"projects": [
+		{
+			"name": "Vue",
+			"text": "Vue JS ni o'rganish",
+			"id": 1,
+			"done": true
+		},
+		{
+			"name": "PHP",
+			"text": "PHP ni o'rganish",
+			"id": 2,
+			"done": true
+		},
+		{
+			"name": "MySQL",
+			"text": "MySQL ni o'rganish",
+			"id": 3,
+			"done": false
+		},
+		{
+			"name": "Laravel",
+			"text": "Laravel ni o'rganish",
+			"id": 4,
+			"done": false
+		}
+	]
+}
