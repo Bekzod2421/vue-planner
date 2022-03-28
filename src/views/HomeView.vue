@@ -1,10 +1,20 @@
 <template>
   <div class="home">
-    home
-    <Menu />
+    <Menu
+      @filter="
+        {
+          filter = $event;
+        }
+      "
+      :filter="filter"
+    />
     <div v-if="projects.length">
-      <div v-for="project in projects" :key="project.id">
-        <ShowProject :project="project" @delete="handleDelete" />
+      <div v-for="project in filterProjects" :key="project.id">
+        <ShowProject
+          :project="project"
+          @delete="handleDelete"
+          @done="handleDone"
+        />
       </div>
     </div>
   </div>
@@ -22,6 +32,7 @@ export default {
   data() {
     return {
       projects: [],
+      filter: "all",
     };
   },
   mounted() {
@@ -35,6 +46,23 @@ export default {
       this.projects = this.projects.filter((project) => {
         return project.id !== id;
       });
+    },
+    handleDone(id) {
+      let p = this.projects.find((done) => {
+        return done.id === id;
+      });
+      p.done = !p.done;
+    },
+  },
+  computed: {
+    filterProjects() {
+      if (this.filter === "com") {
+        return this.projects.filter((item) => item.done);
+      }
+      if (this.filter === "uncom") {
+        return this.projects.filter((item) => !item.done);
+      }
+      return this.projects;
     },
   },
 };

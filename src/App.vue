@@ -18,21 +18,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
   max-width: 600px;
   margin: 0 auto;
-  color: #555;
+  color: #999;
   .top-menu {
     text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
     column-gap: 20px;
+    margin: 40px auto;
     a {
       font-size: 18px;
       font-weight: bold;
       color: #555;
-      padding: 10px 0;
+      margin: 0 10px;
       &.router-link-exact-active {
-        border-bottom: 1px solid lightseagreen;
+        border-bottom: 2px solid #00ce89;
+        padding-bottom: 4px;
       }
     }
   }
